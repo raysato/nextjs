@@ -1,8 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
-:root {
+/* :root {
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
@@ -108,4 +108,16 @@ a {
   html {
     color-scheme: dark;
   }
+} */
+
+.main-visual {
+  height: 48rem;
+}
+.main-visual__img-container {
+  width: 64rem;
+  height: 42rem;
+}
+.main-visual__img {
+  width: 60rem;
+  height: 40rem;
 }

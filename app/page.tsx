@@ -8,13 +8,14 @@ import MainContent from "../components/MainContent";
 export default function Page() {
   return (
     <>
-      <Header />
 
-      <MainVisual />
+      <MainVisual 
+        visualTheme="visualTop"
+      />
 
       <MainContent />
 
-      <Footer />
+
     </>
     
 

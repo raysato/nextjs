@@ -31,14 +31,16 @@ export default function Header() {
               <div>
                 {
                   Object.keys(clickedTags).map(key => {
-                    return <label key={`check${key}`} className="label cursor-pointer w-32">
-                    <input value={clickedTags[key]} onChange={e => {
-                      setClickedTags(() => {
-                        const obj = {...clickedTags}
-                        obj[key] = !obj[key]
-                        return obj
-                      })
-                    }} type="checkbox" className="checkbox checkbox-primary" />
+                    return <label key={`check${key}`} className="label cursor-pointer">
+                    <input value={clickedTags[key]}
+                      onChange={e => {
+                        setClickedTags(() => {
+                          const obj = {...clickedTags}
+                          obj[key] = !obj[key]
+                          return obj
+                        })
+                      }} 
+                    type="checkbox" className="checkbox checkbox-primary" />
                     <span className="label-text">{ key }</span> 
                   </label>
                   })

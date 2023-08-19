@@ -1,6 +1,13 @@
 "use client";
+import { useRef, useState } from "react"
 
 export default function Header() {
+  const modal = useRef<HTMLDialogElement>(null)
+  const [clickedTags, setClickedTags] = useState({
+    tag1: false,
+    tag2: false,
+    tag3: false
+  })
     return (
       <header className="py-4 w-10/12 flex items-center m-auto relative">
         <div className="flex">
@@ -10,14 +17,32 @@ export default function Header() {
         <button
         className="rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-left w-1/3 inline input input-bordered text-neutral-500"
         onClick={()=>{
-          if (document) {
-            (document.getElementById('my_modal_2') as HTMLFormElement).showModal();
+          if (modal.current) {
+            modal.current.showModal();
           }
         }}>サークル検索</button>
-        <dialog id="my_modal_2" className="modal">
+        <dialog ref={modal} id="my_modal_2" className="modal">
           <form method="dialog" className="modal-box">
+              {
+                Object.keys(clickedTags).map(key => {
+                  return clickedTags[key] ? <span key={`tag${key}`}>{key}</span> : null
+                })
+              }
               <div>
-
+                {
+                  Object.keys(clickedTags).map(key => {
+                    return <label key={`check${key}`} className="label cursor-pointer w-32">
+                    <input value={clickedTags[key]} onChange={e => {
+                      setClickedTags(() => {
+                        const obj = {...clickedTags}
+                        obj[key] = !obj[key]
+                        return obj
+                      })
+                    }} type="checkbox" className="checkbox checkbox-primary" />
+                    <span className="label-text">{ key }</span> 
+                  </label>
+                  })
+                }
               </div>
           </form>
           <form method="dialog" className="modal-backdrop">

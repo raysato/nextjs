@@ -20,7 +20,7 @@ export default function Footer() {
                     <div className="absolute top-0 left-0 w-full h-full bg-primary bg-opacity-50 rounded-2xl"></div>
                     <div className="absolute top-1/2 left-1/2 w-11/12 h-5/6 transform -translate-x-1/2 -translate-y-1/2 border rounded-2xl flex items-center justify-center">
                         <div className="text-center">
-                            <p className="text-white font-bold text-xl">サークル登録はこちらから</p>
+                            <p className="text-white font-bold text-xl">登録済みの方はこちら</p>
                             <button className="btn text-center mt-2">詳しく見る</button>
                         </div>
                     </div>

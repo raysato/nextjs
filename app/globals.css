@@ -110,6 +110,11 @@ a {
   }
 } */
 
+@font-face {
+  font-family: 'aoharu-marker';
+  src: url('../public/aoharu-marker-mini.otf');
+}
+
 .main-visual {
   height: 48rem;
 }
@@ -120,4 +125,10 @@ a {
 .main-visual__img {
   width: 60rem;
   height: 40rem;
+}
+.main-visual__p {
+  font-family: 'aoharu-marker';
+}
+.main-title-en {
+  font-family: 'aoharu-marker';
 }

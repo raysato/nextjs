@@ -6,7 +6,7 @@ import SearchTab from "./SearchTab";
 
 export default function MainContent() {
     return (
-      <div className="container mx-auto">
+      <div className="w-10/12 mx-auto">
         <MainTitle 
             title="サークル情報"
             titleEn="information"

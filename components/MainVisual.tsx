@@ -1,3 +1,11 @@
+export const themes = {
+    visualTop: {
+      1: "/58787b52-38a8-4379-85c7-e61bb7f846c2.jpg",
+      2: "/circle_img1.jpg",
+      3: "/lead_img01.jpg",
+    }
+  }
+
 export interface mainVisuals {
     1: string
     2: string
@@ -6,14 +14,6 @@ export interface mainVisuals {
 
 export default function MainVisual({visualTheme}: {visualTheme: mainVisuals}) {
     const visualShow=""
-
-    // if (visualTheme === "visualTop") {
-    //     visual1 = "/58787b52-38a8-4379-85c7-e61bb7f846c2.jpg"
-    // } else if (visualTheme === "visualInput") {
-    //     visual1 = ""
-    // }
-
-    
 
     return (
       <div className="mt-6 relative main-visual overflow-hidden">

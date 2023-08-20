@@ -1,9 +1,9 @@
-import MainVisual from "../../components/MainVisual"
+import MainVisual, { themes } from "../../components/MainVisual"
 
 export default function SearchResult() {
     return (
         <MainVisual 
-        visualTheme="visualForm"
+        visualTheme={themes.visualTop}
       />
       
   

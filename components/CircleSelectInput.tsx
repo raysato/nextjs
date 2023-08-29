@@ -13,13 +13,12 @@ export default function CircleSelectInput({SelectLength, SelectLabel, CircleSele
     return (
       <div className="flex items-center">
         <label htmlFor={SelectLabel}>{CircleSelectLabel}</label>
-        <select className={`select max-w-xs ml-auto block ${LengthSelection(SelectLength)}`} id={SelectLabel}>
-            <option disabled selected>{SelectPlaceholder}</option>
-            <option>Homer</option>
-            <option>Marge</option>
-            <option>Bart</option>
-            <option>Lisa</option>
-            <option>Maggie</option>
+        <select className={`select max-w-xs ml-auto block ${LengthSelection(SelectLength)}`} id={SelectLabel}defaultValue="option1">
+            <option disabled value="option1">{SelectPlaceholder}</option>
+            <option value="option2">Homer</option>
+            <option value="option3">Marge</option>
+            <option value="option4">Bart</option>
+            <option value="option5">Lisa</option>
         </select>
       </div>
     )

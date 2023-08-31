@@ -33,7 +33,7 @@ export default function Header() {
                   Object.keys(clickedTags).map(key => {
                     return <label key={`check${key}`} className="label cursor-pointer">
                     <input value={clickedTags[key]}
-                      onChange={e => {
+                      onChange={(e) => {
                         setClickedTags(() => {
                           const obj = {...clickedTags}
                           obj[key] = !obj[key]

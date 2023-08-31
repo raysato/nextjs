@@ -1,4 +1,4 @@
-import Badge from "./Badge";
+import Badge, { badgeThemes } from "./Badge";
 import Tag from "./Tag";
 
 
@@ -11,7 +11,7 @@ export default function NewsContent() {
                     <img src="/file_005.jpeg" alt="" className="object-cover absolute top-0 left-0 w-full h-full rounded-2xl -z-10" />
                     <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-primary rounded-2xl -z-10"></div>
                     <div className="absolute top-4 right-4">
-                        <Badge />
+                        <Badge badgeTheme={badgeThemes.news} />
                     </div>
                     <div className="">
                         <h4 className="text-white font-bold text-2xl">タイトル</h4>
@@ -29,7 +29,7 @@ export default function NewsContent() {
                     <img src="/file_005.jpeg" alt="" className="object-cover absolute top-0 left-0 w-full h-full rounded-2xl -z-10" />
                     <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-primary rounded-2xl -z-10"></div>
                     <div className="absolute top-2 right-2">
-                        <Badge />
+                        <Badge badgeTheme={badgeThemes.news}/>
                     </div>
                     <div className="">
                         <h4 className="text-white font-bold">タイトル</h4>

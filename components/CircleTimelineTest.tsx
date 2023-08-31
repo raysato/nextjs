@@ -4,7 +4,7 @@ import { useState, useRef } from "react"
 export default function CircleTimelineTest() {
 
     const [inputTimeline, setInputTimeline] = useState('')
-    const [addEvent, setAddEvent] = useState<string[]>([])
+    const [addEvent, setAddEvent] = useState<{value: string, start: string, end: string}[]>([])
     const inputRef = useRef<HTMLInputElement | null>(null)
 
     const [checkedIds, setCheckedIds] = useState<string[]>([])
@@ -23,12 +23,14 @@ export default function CircleTimelineTest() {
         {id: "checkbox11", key: "11", ariaLabel: "2"},
         {id: "checkbox12", key: "12", ariaLabel: "3"},
     ]
+    
 
-    const checkedIdsNum = checkedIds.map(str => (parseInt(str)))
-    const minCheckedIdsNum = "col-start-" + Math.min(...checkedIdsNum);
-    console.log(minCheckedIdsNum)
+    const timelineBar = ["4", "5", "6", "7" , "8", "9", "10", "11", "12", "1", "2", "3"]
+
+    
 
     const handleCheckBoxChange = (key: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
+
         if (event.target.checked) {
             setCheckedIds((checkedIds) => {
                 const newAddCheck = [...checkedIds, key]
@@ -41,14 +43,24 @@ export default function CircleTimelineTest() {
     }
 
     const handleClick = (event) => {
+
+        const checkedIdsNum = checkedIds.map(str => (parseInt(str)))
+        const minCheckedIdsNum = "col-start-" + String(Math.min(...checkedIdsNum))
+        const maxCheckedIdsNum = "col-end-" + String(Math.max(...checkedIdsNum))
+
+        console.log(minCheckedIdsNum)
+        
         event.preventDefault();
-        setAddEvent((AddEvent) => {
-            const newAddEvent = [...AddEvent, inputTimeline]
-            return newAddEvent
-        })
+        setAddEvent(PrevAddEvent => [
+            ...PrevAddEvent, {value: inputTimeline, start: minCheckedIdsNum, end: maxCheckedIdsNum}
+        ])
+
+        setCheckedIds([])
 
         if (inputRef.current) {
             inputRef.current.focus();
+        } else {
+            null
         }
 
         setInputTimeline('')
@@ -59,26 +71,38 @@ export default function CircleTimelineTest() {
     return (
       <div className="">
             <div className="grid grid-cols-12 gap-0.5 text-white">
-                <div className="bg-primary p-2 text-center rounded-tl-lg">4</div>
-                <div className="bg-primary p-2 text-center">5</div>
-                <div className="bg-primary p-2 text-center">6</div>
-                <div className="bg-primary p-2 text-center">7</div>
-                <div className="bg-primary p-2 text-center">8</div>
-                <div className="bg-primary p-2 text-center">9</div>
-                <div className="bg-primary p-2 text-center">10</div>
-                <div className="bg-primary p-2 text-center">11</div>
-                <div className="bg-primary p-2 text-center">12</div>
-                <div className="bg-primary p-2 text-center">1</div>
-                <div className="bg-primary p-2 text-center">2</div>
-                <div className="bg-primary p-2 text-center rounded-tr-lg">3</div>
+                {timelineBar.map((value, index) =>(
+                     <div className={`bg-primary p-2 text-center ${index === 0 ? "rounded-tl-lg" : index === 11 ? "rounded-tr-lg" : ""}`} key={index}>{value}</div>
+                ))}
             </div>
             <div className="mt-4 grid grid-cols-12">
-                {addEvent.map((value, index) => (
-                    <div className={`${minCheckedIdsNum} row-start-${index + 1} col-span-1`} key={value}>
+                {addEvent.map(({value, start, end}, index) => (
+                    <div className={`${start} ${end} row-start-${String(index + 1)}`} key={index}>
                         <p className="whitespace-nowrap">{value}</p>
                         <div className="h-1 rounded-md bg-primary mt-1"></div>
                     </div>
                 ))}
+
+                    {/* <div className={`col-start-2 col-end-5 row-start-1 col-span-1`}>
+                        <p className="whitespace-nowrap">item1</p>
+                        <div className="h-1 rounded-md bg-primary mt-1"></div>
+                    </div>
+                    <div className={`col-start-3 col-end-1 row-start-2 col-span-1`}>
+                        <p className="whitespace-nowrap">item2</p>
+                        <div className="h-1 rounded-md bg-primary mt-1"></div>
+                    </div>
+                    <div className={`col-start-12 col-end-1 row-start-3 col-span-1`}>
+                        <p className="whitespace-nowrap">item3</p>
+                        <div className="h-1 rounded-md bg-primary mt-1"></div>
+                    </div>
+                    <div className={`col-start-9 row-start-4 col-span-1`}>
+                        <p className="whitespace-nowrap">item4</p>
+                        <div className="h-1 rounded-md bg-primary mt-1"></div>
+                    </div>
+                    <div className={`col-start-12 row-start-6 col-span-1`}>
+                        <p className="whitespace-nowrap">item5</p>
+                        <div className="h-1 rounded-md bg-primary mt-1"></div>
+                    </div> */}
 
             </div>
             <div className="rounded-lg border border-base-300 px-4 py-5 mt-4 flex">

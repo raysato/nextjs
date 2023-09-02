@@ -10,12 +10,13 @@ export const badgeThemes = {
 }
 
 export interface badgeProps {
-    badgeTheme: string,
+    style: string
+    value: string
 }
 
-export default function Badge({badgeTheme}: badgeProps) {
-    const selectedTheme = badgeThemes[badgeTheme];
+export default function Badge ({badgeTheme}: {badgeTheme: badgeProps}) {
+
     return (
-        <div className={`badge ${selectedTheme.style}`}>{selectedTheme.value}</div>
+        <div className={`badge ${badgeTheme.style}`}>{badgeTheme.value}</div>
     )
   }

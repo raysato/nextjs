@@ -24,7 +24,6 @@ export interface mainVisuals {
 }
 
 export default function MainVisual({visualTheme}: {visualTheme: mainVisuals}) {
-    const visualShow=""
 
     return (
       <div className="mt-6 relative main-visual overflow-hidden">

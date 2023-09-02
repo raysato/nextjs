@@ -1,7 +1,6 @@
 import Badge, { badgeThemes } from "./Badge";
 import Tag from "./Tag";
 
-
 export default function NewsContent() {
     return (
       <div className="grid grid-cols-4 grid-rows-2 gap-4 mt-6">

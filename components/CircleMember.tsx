@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { PiPlusLight } from "react-icons/pi"
 
 export default function CircleTextInput() {
 
@@ -40,7 +41,7 @@ export default function CircleTextInput() {
             <div className="grid grid-cols-8 gap-x-8 w-full">
                 <div className="col-span-3 aspect-square w-full block"></div>
             </div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-primary text-xl">メンバー追加</div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-primary text-xl flex items-center"><PiPlusLight className="text-5xl mr-4" />メンバー追加</div>
         </button>
       </div>
     )

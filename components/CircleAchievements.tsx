@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react"
+import { PiPlusLight } from "react-icons/pi"
 
 export default function CircleAchievements() {
 
@@ -30,7 +31,7 @@ export default function CircleAchievements() {
             <div className="grid grid-cols-8 gap-x-8 w-full">
                 <div className="col-span-5 aspect-square w-full block"></div>
             </div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-primary text-xl">実績追加</div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-primary text-xl"><PiPlusLight className="text-5xl mx-auto mb-1" />実績追加</div>
         </button>
       </div>
     )

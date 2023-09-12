@@ -1,0 +1,58 @@
+export const NewsData = [
+    {
+        title: "タイトル1",
+        content: "テキストテキストテキストテキストテキストテキストテキストテキストテキスト",
+        link: "/",
+        img: "/file_005.jpeg",
+        id: "news1",
+    },
+    {
+        title: "タイトル2",
+        content: "テキストテキストテキストテキストテキストテキストテキストテキストテキスト",
+        link: "/",
+        img: "/file_005.jpeg",
+        id: "news2",
+    },
+    {
+        title: "タイトル3",
+        content: "テキストテキストテキストテキストテキストテキストテキストテキストテキスト",
+        link: "/",
+        img: "/file_005.jpeg",
+        id: "news3",
+    },
+    {
+        title: "タイトル4",
+        content: "テキストテキストテキストテキストテキストテキストテキストテキストテキスト",
+        link: "/",
+        img: "/file_005.jpeg",
+        id: "news4",
+    },
+    {
+        title: "タイトル5",
+        content: "テキストテキストテキストテキストテキストテキストテキストテキストテキスト",
+        link: "/",
+        img: "/file_005.jpeg",
+        id: "news5",
+    },
+    {
+        title: "タイトル6",
+        content: "テキストテキストテキストテキストテキストテキストテキストテキストテキスト",
+        link: "/",
+        img: "/file_005.jpeg",
+        id: "news6",
+    },
+    {
+        title: "タイトル7",
+        content: "テキストテキストテキストテキストテキストテキストテキストテキストテキスト",
+        link: "/",
+        img: "/file_005.jpeg",
+        id: "news7",
+    },
+    {
+        title: "タイトル8",
+        content: "テキストテキストテキストテキストテキストテキストテキストテキストテキスト",
+        link: "/",
+        img: "/file_005.jpeg",
+        id: "news8",
+    },
+]

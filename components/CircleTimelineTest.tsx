@@ -1,5 +1,6 @@
 "use client";
 import { useState, useRef } from "react"
+import { AiOutlinePlus } from "react-icons/ai"
 
 export default function CircleTimelineTest() {
 
@@ -24,10 +25,7 @@ export default function CircleTimelineTest() {
         {id: "checkbox12", key: "12", ariaLabel: "3"},
     ]
     
-
     const timelineBar = ["4", "5", "6", "7" , "8", "9", "10", "11", "12", "1", "2", "3"]
-
-    
 
     const handleCheckBoxChange = (key: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
 
@@ -121,9 +119,9 @@ export default function CircleTimelineTest() {
                         checked={checkedIds.includes(key)} />
                     ))}
                 </div>
-                <button className="btn btn-outline btn-primary ml-auto block"
+                <button className="btn btn-outline btn-primary ml-auto"
                 onClick={handleClick}
-                >イベント追加</button>
+                ><AiOutlinePlus className="text-2xl" />イベント追加</button>
             </div>
       </div>
     )

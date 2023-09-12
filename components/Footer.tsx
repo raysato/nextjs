@@ -1,3 +1,5 @@
+import { BiChevronRight } from "react-icons/bi"
+
 export default function Footer() {
     return (
       <footer className="mx-4 mt-32">
@@ -9,7 +11,7 @@ export default function Footer() {
                     <div className="absolute top-1/2 left-1/2 w-11/12 h-5/6 transform -translate-x-1/2 -translate-y-1/2 border rounded-2xl flex items-center justify-center">
                         <div className="text-center">
                             <p className="text-white font-bold text-xl">サークル登録はこちらから</p>
-                            <button className="btn text-center mt-2">詳しく見る</button>
+                            <button className="btn text-center mt-2">詳しく見る<BiChevronRight className="text-3xl" /></button>
                         </div>
                     </div>
                 </a>
@@ -21,7 +23,7 @@ export default function Footer() {
                     <div className="absolute top-1/2 left-1/2 w-11/12 h-5/6 transform -translate-x-1/2 -translate-y-1/2 border rounded-2xl flex items-center justify-center">
                         <div className="text-center">
                             <p className="text-white font-bold text-xl">登録済みの方はこちら</p>
-                            <button className="btn text-center mt-2">詳しく見る</button>
+                            <button className="btn text-center mt-2">詳しく見る<BiChevronRight className="text-3xl" /></button>
                         </div>
                     </div>
                 </a>

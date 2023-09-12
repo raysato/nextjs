@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react"
+import { PiPlusLight } from "react-icons/pi"
 
 export default function CircleFAQ() {
 
@@ -23,7 +24,7 @@ export default function CircleFAQ() {
             </div>
           ))}
           <button className="border-4 rounded-2xl border-dashed border-primary-content relative w-full h-32 mt-4" onClick={handleClick}>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-primary text-xl">質問・回答追加</div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-primary text-xl flex items-center"><PiPlusLight className="text-5xl mr-4" />質問・回答追加</div>
           </button>
       </div>
     )

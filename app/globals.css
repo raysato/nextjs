@@ -114,6 +114,9 @@ a {
   font-family: 'aoharu-marker';
   src: url('../public/aoharu-marker-mini.otf');
 }
+body {
+  @apply text-sm
+}
 
 .main-visual {
   height: 48rem;

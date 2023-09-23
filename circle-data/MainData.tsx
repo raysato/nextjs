@@ -5,6 +5,7 @@ export const MainData = [
         link: "/",
         img: "/B558EE23-FB74-4EEA-A776-510DA40FC8F8.jpeg",
         id: "news1",
+        badge: "valid"
     },
     {
         title: "タイトル2",
@@ -12,6 +13,7 @@ export const MainData = [
         link: "/",
         img: "/B558EE23-FB74-4EEA-A776-510DA40FC8F8.jpeg",
         id: "news2",
+        badge: "invalid"
     },
     {
         title: "タイトル3",
@@ -19,6 +21,7 @@ export const MainData = [
         link: "/",
         img: "/B558EE23-FB74-4EEA-A776-510DA40FC8F8.jpeg",
         id: "news3",
+        badge: "valid"
     },
     {
         title: "タイトル4",
@@ -26,6 +29,7 @@ export const MainData = [
         link: "/",
         img: "/B558EE23-FB74-4EEA-A776-510DA40FC8F8.jpeg",
         id: "news4",
+        badge: "invalid"
     },
     {
         title: "タイトル5",
@@ -33,6 +37,7 @@ export const MainData = [
         link: "/",
         img: "/B558EE23-FB74-4EEA-A776-510DA40FC8F8.jpeg",
         id: "news5",
+        badge: "valid"
     },
     {
         title: "タイトル6",
@@ -40,6 +45,7 @@ export const MainData = [
         link: "/",
         img: "/B558EE23-FB74-4EEA-A776-510DA40FC8F8.jpeg",
         id: "news6",
+        badge: "valid"
     },
     {
         title: "タイトル7",
@@ -47,6 +53,7 @@ export const MainData = [
         link: "/",
         img: "/B558EE23-FB74-4EEA-A776-510DA40FC8F8.jpeg",
         id: "news7",
+        badge: "valid"
     },
     {
         title: "タイトル8",
@@ -54,5 +61,6 @@ export const MainData = [
         link: "/",
         img: "/B558EE23-FB74-4EEA-A776-510DA40FC8F8.jpeg",
         id: "news8",
+        badge: "valid"
     },
 ]

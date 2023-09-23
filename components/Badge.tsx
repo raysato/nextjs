@@ -6,6 +6,14 @@ export const badgeThemes = {
     event: {
         style: "",
         value: "イベント",
+    },
+    valid: {
+        style: "badge-success",
+        value: "募集中",
+    },
+    invalid: {
+        style: "badge-error",
+        value: "期間外",
     }
 }
 
@@ -14,10 +22,11 @@ export interface badgeProps {
     value: string
 }
 
-export default function Badge ({badgeTheme}: {badgeTheme: badgeProps}) {
-
+export default function Badge ({badgeTheme}: {badgeTheme: string}) {
+    const themeStyle = badgeThemes[badgeTheme] || {}
     return (
-        // <div className={`badge ${badgeTheme.style}`}>{badgeTheme.value}</div> // イケない
-        <div className={`badge ${badgeThemes.news.style}`}>{badgeThemes.news.value}</div> //イケる
+        <>
+         <div className={`badge ${themeStyle.style}`}>{themeStyle.value}</div>
+        </>
     )
   }

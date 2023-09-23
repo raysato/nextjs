@@ -12,7 +12,7 @@ module.exports = {
     extend: {
       colors: {
         'primary-light': '#FFECF0',
-        'Neutral-500': '#525252',
+        'Neutral-500': '#737373',
         'background': '#FFFBFF',
       }
     },

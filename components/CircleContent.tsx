@@ -12,7 +12,7 @@ export default function CircleContent() {
                 <div className="relative">
                     <img src={item.img} alt="" className="aspect-square object-cover rounded-xl"/>
                     <div className="absolute top-2 right-2">
-                        <Badge badgeTheme={badgeThemes.news}/>
+                        <Badge badgeTheme={item.badge}/>
                     </div>
                 </div>
                 <h4 className="font-bold mt-1">{item.title}</h4>

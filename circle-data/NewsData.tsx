@@ -5,6 +5,7 @@ export const NewsData = [
         link: "/",
         img: "/file_005.jpeg",
         id: "news1",
+        badge: "event"
     },
     {
         title: "タイトル2",
@@ -12,6 +13,7 @@ export const NewsData = [
         link: "/",
         img: "/file_005.jpeg",
         id: "news2",
+        badge: "event"
     },
     {
         title: "タイトル3",
@@ -19,6 +21,7 @@ export const NewsData = [
         link: "/",
         img: "/file_005.jpeg",
         id: "news3",
+        badge: "event"
     },
     {
         title: "タイトル4",
@@ -26,6 +29,7 @@ export const NewsData = [
         link: "/",
         img: "/file_005.jpeg",
         id: "news4",
+        badge: "event"
     },
     {
         title: "タイトル5",
@@ -33,6 +37,7 @@ export const NewsData = [
         link: "/",
         img: "/file_005.jpeg",
         id: "news5",
+        badge: "event"
     },
     {
         title: "タイトル6",
@@ -40,6 +45,7 @@ export const NewsData = [
         link: "/",
         img: "/file_005.jpeg",
         id: "news6",
+        badge: "event"
     },
     {
         title: "タイトル7",
@@ -47,6 +53,7 @@ export const NewsData = [
         link: "/",
         img: "/file_005.jpeg",
         id: "news7",
+        badge: "event"
     },
     {
         title: "タイトル8",
@@ -54,5 +61,6 @@ export const NewsData = [
         link: "/",
         img: "/file_005.jpeg",
         id: "news8",
+        badge: "event"
     },
 ]

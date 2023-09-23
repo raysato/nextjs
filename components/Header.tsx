@@ -85,7 +85,7 @@ export default function Header() {
                         return item.check ? <span key={item.id} className="px-3 py-1 rounded-full bg-primary-content text-primary text-sm mr-1">{item.genre}</span> : null
                       })}
                   </a>
-                  <a className={`overflow-x-scroll hidden-scrollbar flex items-center rounded-full ${toggleState === 2 ? "tab-active bg-primary" : ""}`} onClick={() => toggleTab(2)}>
+                  <a className={`overflow-x-scroll hidden-scrollbar flex items-center rounded-full px-2 ${toggleState === 2 ? "tab-active bg-primary" : ""}`} onClick={() => toggleTab(2)}>
                     {clickedTags2.map(item => {
                         return item.check ? <span key={item.id} className="px-3 py-1 rounded-full bg-primary-content text-primary text-sm mr-1">{item.genre}</span> : null
                       })}

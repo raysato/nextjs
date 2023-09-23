@@ -4,9 +4,8 @@ import { NewsData } from "../circle-data/NewsData"
 
 export default function NewsContent() {
 
-    const NewsFirstData = NewsData.find((_, index) => index <= 0) || {title: "initial", content: "initial", link: "initial", img: "initial", id: "initial"}
+    const NewsFirstData = NewsData.find((_, index) => index <= 0) || {title: "initial", content: "initial", link: "initial", img: "initial", id: "initial", badge: "initial"}
     const NewsSubData = NewsData.slice(1, 5)
-    console.log(NewsSubData)
 
     return (
       <div className="grid grid-cols-4 grid-rows-2 gap-4 mt-6">
@@ -16,7 +15,7 @@ export default function NewsContent() {
                         <img src={NewsFirstData.img} alt="" className="object-cover absolute top-0 left-0 w-full h-full rounded-2xl -z-10" />
                         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-primary rounded-2xl -z-10"></div>
                         <div className="absolute top-4 right-4">
-                            <Badge badgeTheme={badgeThemes.news} />
+                            <Badge badgeTheme={NewsFirstData.badge} />
                         </div>
                         <div className="">
                             <h4 className="text-white font-bold text-2xl">{NewsFirstData.title}</h4>
@@ -35,7 +34,7 @@ export default function NewsContent() {
                         <img src={item.img} alt="" className="object-cover absolute top-0 left-0 w-full h-full rounded-2xl -z-10" />
                         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-primary rounded-2xl -z-10"></div>
                         <div className="absolute top-2 right-2">
-                            <Badge badgeTheme={badgeThemes.news}/>
+                            <Badge badgeTheme={item.badge}/>
                         </div>
                         <div className="">
                             <h4 className="text-white font-bold">{item.title}</h4>

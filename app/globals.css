@@ -138,6 +138,12 @@ body {
 .iconStyle {
   @apply text-3xl m-auto text-Neutral-500;
 }
+.enabled-icon-style {
+  @apply text-2xl text-primary mr-2
+}
+.disabled-icon-style {
+  @apply text-2xl text-neutral-content mr-2
+}
 
 .hidden-scrollbar {
   -ms-overflow-style: none; /* IE, Edge 対応 */

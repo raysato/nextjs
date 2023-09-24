@@ -6,10 +6,6 @@ import { useFormContext, Controller, useFieldArray } from "react-hook-form"
 export default function CircleTextInput() {
 
     const {control, formState: {errors}} = useFormContext()
-    interface memberObject {
-        name: string,
-        explanation: string
-    }
 
     const {fields, append, remove} = useFieldArray({
         control,

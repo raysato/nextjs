@@ -3,15 +3,19 @@ import { useState, useRef } from "react"
 
 export default function CircleTimeline() {
 
-    const [addTag, setAddTag] = useState(0)
+    const [addTag, setAddTag] = useState<number>(0)
 
-    const [inputTimeline, setInputTimeline] = useState('')
+    const [inputTimeline, setInputTimeline] = useState<string>('')
     const [savedValues, setSavedValues] = useState<string[]>([])
     const inputRef = useRef<HTMLInputElement | null>(null)
 
     const [checkedIds, setCheckedIds] = useState<string[]>([])
 
-    const checkBoxes = [
+    interface checkBoxType {
+        id: string, key: string, ariaLabel: string
+    }
+
+    const checkBoxes: checkBoxType[] = [
         {id: "checkbox1", key: "1", ariaLabel: "4"},
         {id: "checkbox2", key: "2", ariaLabel: "5"},
         {id: "checkbox3", key: "3", ariaLabel: "6"},
@@ -26,8 +30,8 @@ export default function CircleTimeline() {
         {id: "checkbox12", key: "12", ariaLabel: "3"},
     ]
 
-    const checkedIdsNum = checkedIds.map(str => (parseInt(str)))
-    const minCheckedIdsNum = "col-start-" + Math.min(...checkedIdsNum);
+    const checkedIdsNum: number[] = checkedIds.map(str => (parseInt(str)))
+    const minCheckedIdsNum: string = "col-start-" + Math.min(...checkedIdsNum);
     console.log(minCheckedIdsNum)
 
     const handleCheckBoxChange = (key: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -38,7 +42,7 @@ export default function CircleTimeline() {
         }
     }
 
-    const handleClick = (event) => {
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
         setAddTag(addTag + 1);
 

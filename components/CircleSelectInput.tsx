@@ -4,14 +4,14 @@ export default function CircleSelectInput({SelectLength, SelectLabel, CircleSele
 
     const {control, formState: {errors}} = useFormContext()
 
-    const targetShort = "short"
-    const targetWide = "wide"
+    const targetShort: string = "short"
+    const targetWide: string = "wide"
 
-     const LengthSelection = (length) => {
+     const LengthSelection = (length: string) => {
         return length === targetShort ? "w-24" : length === targetWide ? "w-full" : null;
     }
 
-     const LengthSelection2 = (length) => {
+     const LengthSelection2 = (length: string) => {
         return length === targetShort ? "" : length === targetWide ? "w-80" : null;
     }
 

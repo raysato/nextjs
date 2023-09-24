@@ -1,19 +1,23 @@
 "use client";
-import { SetStateAction, useDebugValue, useRef, useState } from "react"
+import { useRef, useState } from "react"
 
 export default function Header() {
   const modal = useRef<HTMLDialogElement>(null)
-  const [toggleState, setToggleState] = useState(1)
+  const [toggleState, setToggleState] = useState<number>(1)
 
-  // interface tagsType {tag1: boolean, tag2: boolean, tag3: boolean, tag4: boolean, tag5: boolean, tag6: boolean, tag7: boolean, tag8: boolean, tag9: boolean, tag10: boolean, tag11: boolean, tag12: boolean}
+  interface tagsType {
+    check: boolean,
+    id: number,
+    genre: string
+  }
 
-  const initialTag = [{check: false, id: 1, genre: "tag1"}, {check: false, id: 2, genre: "tag2"}, {check: false, id: 3, genre: "tag3"}, {check: false, id: 4, genre: "tag4"}, {check: false, id: 5, genre: "tag5"}, {check: false, id: 6, genre: "tag6"}, {check: false, id: 7, genre: "tag7"}, {check: false, id: 8, genre: "tag8"}, {check: false, id: 9, genre: "tag9"}, {check: false, id: 10, genre: "tag10"}, {check: false, id: 11, genre: "tag11"}, {check: false, id: 12, genre: "tag12"}]
+  const initialTag: tagsType[] = [{check: false, id: 1, genre: "tag1"}, {check: false, id: 2, genre: "tag2"}, {check: false, id: 3, genre: "tag3"}, {check: false, id: 4, genre: "tag4"}, {check: false, id: 5, genre: "tag5"}, {check: false, id: 6, genre: "tag6"}, {check: false, id: 7, genre: "tag7"}, {check: false, id: 8, genre: "tag8"}, {check: false, id: 9, genre: "tag9"}, {check: false, id: 10, genre: "tag10"}, {check: false, id: 11, genre: "tag11"}, {check: false, id: 12, genre: "tag12"}]
   const [clickedTags, setClickedTags] = useState(initialTag)
 
-  const initialTag2 = [{check: false, id: 1, genre: "tag1"}, {check: false, id: 2, genre: "tag2"}, {check: false, id: 3, genre: "tag3"}, {check: false, id: 4, genre: "tag4"}, {check: false, id: 5, genre: "tag5"}, {check: false, id: 6, genre: "tag6"}, {check: false, id: 7, genre: "tag7"}, {check: false, id: 8, genre: "tag8"}, {check: false, id: 9, genre: "tag9"}, {check: false, id: 10, genre: "tag10"}, {check: false, id: 11, genre: "tag11"}, {check: false, id: 12, genre: "tag12"}]
+  const initialTag2: tagsType[] = [{check: false, id: 1, genre: "tag1"}, {check: false, id: 2, genre: "tag2"}, {check: false, id: 3, genre: "tag3"}, {check: false, id: 4, genre: "tag4"}, {check: false, id: 5, genre: "tag5"}, {check: false, id: 6, genre: "tag6"}, {check: false, id: 7, genre: "tag7"}, {check: false, id: 8, genre: "tag8"}, {check: false, id: 9, genre: "tag9"}, {check: false, id: 10, genre: "tag10"}, {check: false, id: 11, genre: "tag11"}, {check: false, id: 12, genre: "tag12"}]
   const [clickedTags2, setClickedTags2] = useState(initialTag2)
 
-  const toggleTab = (num) => {
+  const toggleTab = (num: number) => {
     setToggleState(num)
   }
 

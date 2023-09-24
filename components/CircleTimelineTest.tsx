@@ -2,15 +2,17 @@
 import { useState, useRef } from "react"
 import { AiOutlinePlus } from "react-icons/ai"
 
+export const timelineBar: string[] = ["4", "5", "6", "7" , "8", "9", "10", "11", "12", "1", "2", "3"]
+
 export default function CircleTimelineTest() {
 
-    const [inputTimeline, setInputTimeline] = useState('')
+    const [inputTimeline, setInputTimeline] = useState<string>('')
     const [addEvent, setAddEvent] = useState<{value: string, start: string, end: string}[]>([])
     const inputRef = useRef<HTMLInputElement | null>(null)
 
     const [checkedIds, setCheckedIds] = useState<string[]>([])
 
-    const checkBoxes = [
+    const checkBoxes: checkBoxType[] = [
         {id: "checkbox1", key: "1", ariaLabel: "4"},
         {id: "checkbox2", key: "2", ariaLabel: "5"},
         {id: "checkbox3", key: "3", ariaLabel: "6"},
@@ -24,9 +26,13 @@ export default function CircleTimelineTest() {
         {id: "checkbox11", key: "11", ariaLabel: "2"},
         {id: "checkbox12", key: "12", ariaLabel: "3"},
     ]
-    
-    const timelineBar = ["4", "5", "6", "7" , "8", "9", "10", "11", "12", "1", "2", "3"]
 
+    interface checkBoxType {
+        id: string,
+        key: string,
+        ariaLabel: string
+    }
+    
     const handleCheckBoxChange = (key: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
 
         if (event.target.checked) {

@@ -6,19 +6,23 @@ import Tag from "./Tag";
 
 export default function SearchTab() {
 
-    const [toggleState, setToggleState] = useState(1);
+    const [toggleState, setToggleState] = useState<number>(1);
 
-    const toggleTab = (num) => {
+    const toggleTab = (num: number) => {
         setToggleState(num);
     }
 
-    const mainGenre = [
+    interface genreType {
+        genre: string, img: string, link: string
+    }
+
+    const mainGenre: genreType[] = [
         {genre: "サッカー", img: "travel-nomades-JO19K0HDDXI-unsplash.jpg", link: "/"},
         {genre: "サッカー", img: "travel-nomades-JO19K0HDDXI-unsplash.jpg", link: "/"},
         {genre: "サッカー", img: "travel-nomades-JO19K0HDDXI-unsplash.jpg", link: "/"},
     ]
 
-    const subGenre = [
+    const subGenre: genreType[] = [
         {genre: "サッカー", img: "travel-nomades-JO19K0HDDXI-unsplash.jpg", link: "/"},
         {genre: "サッカー", img: "travel-nomades-JO19K0HDDXI-unsplash.jpg", link: "/"},
         {genre: "サッカー", img: "travel-nomades-JO19K0HDDXI-unsplash.jpg", link: "/"},

@@ -1,4 +1,4 @@
-export const badgeThemes = {
+export const badgeThemes: {[key: string]: badgeProps} = {
     news: {
         style: "badge-neutral",
         value: "ニュース",

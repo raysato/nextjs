@@ -7,11 +7,10 @@ import CircleTimelineTest from "./CircleTimelineTest"
 import CircleMember from "./CircleMember"
 import CircleAchievements from "./CircleAchievements"
 import CircleFAQ from "./CircleFAQ"
-import {useForm, FormProvider, SubmitHandler} from "react-hook-form"
+import { useForm, FormProvider } from "react-hook-form"
 
 export default function CircleForm() {
 
-    // const {register, handleSubmit} = useForm()
     const useFormMethods = useForm({
         mode: "onChange",
         defaultValues: {

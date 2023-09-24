@@ -11,9 +11,9 @@ import { BiChevronRight } from 'react-icons/bi'
 export default function GenreScroll() {
 
     const scrollBarRef = useRef<HTMLDivElement>(null)
-    const [isHidden, setIsHidden] = useState(false)
+    const [isHidden, setIsHidden] = useState<boolean>(false)
 
-    const [isScrollable, setIsScrollable] = useState(false);
+    const [isScrollable, setIsScrollable] = useState<boolean>(false);
 
     const handleRight = () => {
         scrollBarRef.current ? scrollBarRef.current.scroll({left: scrollBarRef.current.scrollLeft + 500, behavior: "smooth"}) : null

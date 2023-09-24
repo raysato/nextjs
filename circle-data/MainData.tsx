@@ -1,4 +1,4 @@
-export const MainData = [
+export const MainData: mainDataType[] = [
     {
         title: "タイトル1",
         content: "テキストテキストテキストテキストテキストテキストテキストテキストテキスト",
@@ -64,3 +64,7 @@ export const MainData = [
         badge: "valid"
     },
 ]
+
+interface mainDataType {
+    title: string, content: string, link: string, img: string, id: string, badge: string
+}

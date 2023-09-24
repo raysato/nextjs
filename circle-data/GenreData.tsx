@@ -12,7 +12,13 @@ import { MdOutlineSportsVolleyball } from 'react-icons/md'
 import { BiTennisBall } from 'react-icons/bi'
 import { GiTrumpet } from 'react-icons/gi'
 
-export const genreList = [
+interface genreListType {
+    icon: JSX.Element,
+    genre: string,
+    link: string
+}
+
+export const genreList: genreListType[] = [
     {icon: <MdSportsSoccer className="iconStyle" />, genre: "サッカー", link: "/"},
     {icon: <BiBasketball className="iconStyle" />, genre: "バスケットボール", link: "/"},
     {icon: <PiTent className="iconStyle" />,genre: "アウトドア",link: "/"},

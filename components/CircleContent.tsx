@@ -5,6 +5,7 @@ import { MainData } from "../circle-data/MainData";
 export default function CircleContent() {
 
     const SlicedMainData = MainData.slice(0, 9)
+    
     return (
       <div className="grid grid-cols-4 grid-rows-2 gap-4 text-sm mt-4">
         {SlicedMainData.map((item) => (

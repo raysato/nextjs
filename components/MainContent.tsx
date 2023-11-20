@@ -24,7 +24,7 @@ export default function MainContent() {
 
         <CircleContent />
 
-        <SearchTab></SearchTab>
+        <SearchTab />
 
         <SubTitle 
             subtitle="サークル紹介"

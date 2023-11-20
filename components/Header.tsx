@@ -31,7 +31,6 @@ export default function Header() {
         return prevTags
       })
     })
-    console.log(clickedTags)
   }
 
   const handleCheck2 = (id: number) => {
@@ -44,7 +43,6 @@ export default function Header() {
         return prevTags
       })
     })
-    console.log(clickedTags2)
   }
 
   const handleClear = () => {

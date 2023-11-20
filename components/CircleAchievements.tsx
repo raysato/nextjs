@@ -29,7 +29,7 @@ export default function CircleAchievements() {
                         rules={{required: "必須項目です"}}
                         render={({field}) => (<textarea className={`textarea textarea-bordered w-full mt-4 ${errors.AchievementList?.[index]?.achievement && "textarea-error"}`} placeholder="実績" {...field}></textarea>)}
                     />
-                <div className="text-error">{errors.AchievementList?.[index]?.achievement.message as React.ReactNode}</div>
+                <div className="text-error">{errors.AchievementList?.[index]?.achievement?.message as React.ReactNode}</div>
             </div>
         ))}
         {fields.length === 3 ||

@@ -8,6 +8,7 @@ import CircleMember from "./CircleMember"
 import CircleAchievements from "./CircleAchievements"
 import CircleFAQ from "./CircleFAQ"
 import { useForm, FormProvider } from "react-hook-form"
+import CircleMainContent from "./CircleMainContent";
 
 export default function CircleForm() {
 
@@ -127,7 +128,9 @@ export default function CircleForm() {
                     <CircleSubTitle
                         circleSubtitle="メインコンテンツ"
                     />
-                    <div className="mt-8"></div>
+                    <div className="mt-8">
+                        <CircleMainContent />
+                    </div>
                     <CircleSubTitle
                         circleSubtitle="イベントタイムライン"
                     />

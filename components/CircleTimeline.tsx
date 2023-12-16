@@ -1,19 +1,16 @@
 "use client";
 import { useState, useRef } from "react"
+import { AiOutlinePlus } from "react-icons/ai"
 
-export default function CircleTimeline() {
+export const timelineBar: string[] = ["4", "5", "6", "7" , "8", "9", "10", "11", "12", "1", "2", "3"]
 
-    const [addTag, setAddTag] = useState<number>(0)
+export default function CircleTimelineTest() {
 
     const [inputTimeline, setInputTimeline] = useState<string>('')
-    const [savedValues, setSavedValues] = useState<string[]>([])
+    const [addEvent, setAddEvent] = useState<{value: string, start: string, end: string}[]>([])
     const inputRef = useRef<HTMLInputElement | null>(null)
 
     const [checkedIds, setCheckedIds] = useState<string[]>([])
-
-    interface checkBoxType {
-        id: string, key: string, ariaLabel: string
-    }
 
     const checkBoxes: checkBoxType[] = [
         {id: "checkbox1", key: "1", ariaLabel: "4"},
@@ -30,49 +27,61 @@ export default function CircleTimeline() {
         {id: "checkbox12", key: "12", ariaLabel: "3"},
     ]
 
-    const checkedIdsNum: number[] = checkedIds.map(str => (parseInt(str)))
-    const minCheckedIdsNum: string = "col-start-" + Math.min(...checkedIdsNum);
-    console.log(minCheckedIdsNum)
-
+    interface checkBoxType {
+        id: string,
+        key: string,
+        ariaLabel: string
+    }
+    
     const handleCheckBoxChange = (key: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
-        if (checkedIds.includes(key)) {
-            setCheckedIds(checkedIds.filter(item => item !== key))
+
+        if (event.target.checked) {
+            setCheckedIds((checkedIds) => {
+                const newAddCheck = [...checkedIds, key]
+                return newAddCheck
+                }
+            )
         } else {
-            setCheckedIds([...checkedIds, key])
+            setCheckedIds(checkedIds.filter(item => item !== key))
         }
     }
 
-    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const handleClick = (event) => {
+
+        const checkedIdsNum = checkedIds.map(str => (parseInt(str)))
+        const minCheckedIdsNum = "col-start-" + String(Math.min(...checkedIdsNum))
+        const maxCheckedIdsNum = "col-end-" + String(Math.max(...checkedIdsNum))
+
+        console.log(minCheckedIdsNum)
+        
         event.preventDefault();
-        setAddTag(addTag + 1);
+        setAddEvent(PrevAddEvent => [
+            ...PrevAddEvent, {value: inputTimeline, start: minCheckedIdsNum, end: maxCheckedIdsNum}
+        ])
+
+        setCheckedIds([])
 
         if (inputRef.current) {
-            const inputValue = inputRef.current.value
-            setSavedValues([...savedValues, inputValue])
-            setInputTimeline('')
+            inputRef.current.focus();
+        } else {
+            null
         }
+
+        setInputTimeline('')
+
         console.log(checkedIds);
     }
 
     return (
       <div className="">
             <div className="grid grid-cols-12 gap-0.5 text-white">
-                <div className="bg-primary p-2 text-center rounded-tl-lg">4</div>
-                <div className="bg-primary p-2 text-center">5</div>
-                <div className="bg-primary p-2 text-center">6</div>
-                <div className="bg-primary p-2 text-center">7</div>
-                <div className="bg-primary p-2 text-center">8</div>
-                <div className="bg-primary p-2 text-center">9</div>
-                <div className="bg-primary p-2 text-center">10</div>
-                <div className="bg-primary p-2 text-center">11</div>
-                <div className="bg-primary p-2 text-center">12</div>
-                <div className="bg-primary p-2 text-center">1</div>
-                <div className="bg-primary p-2 text-center">2</div>
-                <div className="bg-primary p-2 text-center rounded-tr-lg">3</div>
+                {timelineBar.map((value, index) =>(
+                     <div className={`bg-primary p-2 text-center ${index === 0 ? "rounded-tl-lg" : index === 11 ? "rounded-tr-lg" : ""}`} key={index}>{value}</div>
+                ))}
             </div>
             <div className="mt-4 grid grid-cols-12">
-                {savedValues.map((value, index) => (
-                    <div className={`${minCheckedIdsNum} row-start-${index + 1} col-span-1`} key={index}>
+                {addEvent.map(({value, start, end}, index) => (
+                    <div className={`${start} ${end} row-start-${String(index + 1)}`} key={index}>
                         <p className="whitespace-nowrap">{value}</p>
                         <div className="h-1 rounded-md bg-primary mt-1"></div>
                     </div>
@@ -81,17 +90,22 @@ export default function CircleTimeline() {
             <div className="rounded-lg border border-base-300 px-4 py-5 mt-4 flex">
                 <input type="text" placeholder="イベント名" className="input input-bordered w-full max-w-xs mr-4"
                 value={inputTimeline}
-                ref={inputRef}
                 onChange={(e) => setInputTimeline(e.target.value)}
+                ref={inputRef}
                 />
                 <div className="join">
                     {checkBoxes.map(({id, key, ariaLabel}) => (
-                        <input className="join-item btn" type="checkbox" name="options" aria-label={ariaLabel} id={id} key={key} onChange={handleCheckBoxChange(key)} checked={checkedIds.includes(key)} />
+                        <input className="join-item btn" type="checkbox" name="options"
+                        aria-label={ariaLabel}
+                        id={id}
+                        key={key}
+                        onChange={handleCheckBoxChange(key)}
+                        checked={checkedIds.includes(key)} />
                     ))}
                 </div>
-                <button className="btn btn-outline btn-primary ml-auto block"
+                <button className="btn btn-outline btn-primary ml-auto"
                 onClick={handleClick}
-                >イベント追加</button>
+                ><AiOutlinePlus className="text-2xl" />イベント追加</button>
             </div>
       </div>
     )

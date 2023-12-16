@@ -7,18 +7,7 @@ import { MdPlace } from "react-icons/md"
 import { FaYenSign } from "react-icons/fa"
 import { MdToday } from "react-icons/md"
 
-export default function CircleIntroInfo() {
-
-    const CircleParameter: CircleParameterType[] = [
-        {value: "飲み度", margin: "", enabledIcon: <BiSolidWine className="enabled-icon-style" />, disabledIcon: <BiSolidWine className="disabled-icon-style" />, rate: 4, id: 1},
-        {value: "仲良し度", margin: "mt-4", enabledIcon: <BsPeopleFill className="enabled-icon-style" />, disabledIcon: <BsPeopleFill className="disabled-icon-style" />, rate: 5, id: 2},
-        {value: "ガチ度", margin: "mt-4", enabledIcon: <FaRunning className="enabled-icon-style" />, disabledIcon: <FaRunning className="disabled-icon-style" />, rate: 0, id: 3},
-        {value: "カップル度", margin: "mt-4", enabledIcon: <BsSuitHeartFill className="enabled-icon-style" />, disabledIcon: <BsSuitHeartFill className="disabled-icon-style" />, rate: 1, id: 4},
-    ]
-
-    interface CircleParameterType {
-        value: string, margin: string, enabledIcon: JSX.Element, disabledIcon: JSX.Element, rate: number, id: number
-    }
+export default function CircleIntroInfo({drinkingPower, friendsPower, gachiPower, lovePower, member, place, annualCost, activeDay}) {
 
     const CircleInfo: CircleInformationType[] = [
         {icon: <HiUserGroup className="text-2xl"/>, name:"人数", value: "120人", id: 1},
@@ -34,25 +23,57 @@ export default function CircleIntroInfo() {
     return (
         <div className="px-12 py-8 shadow-xl rounded-3xl border grid grid-cols-2 mt-10">
             <div className="">
-                {CircleParameter.map((item) => (
-                    <div className={`grid grid-cols-2 ${item.margin}`} key={item.id}>
-                        <p>{item.value}</p>
-                        <div className="flex">
-                            {[...Array(item.rate)].map(() => (item.enabledIcon))}
-                            {[...Array(5 - item.rate)].map(() => (item.disabledIcon))}
-                        </div>
+                <div className="grid grid-cols-2" >
+                    <p>飲み度</p>
+                    <div className="flex">
+                        {[...Array(drinkingPower)].map(() => (<BiSolidWine className="enabled-icon-style" />))}
+                        {[...Array(5 - drinkingPower)].map(() => (<BiSolidWine className="disabled-icon-style" />))}
                     </div>
-                ))}
+                </div>
+                <div className="grid grid-cols-2 mt-4" >
+                    <p>仲良し度</p>
+                    <div className="flex">
+                        {[...Array(friendsPower)].map(() => (<BsPeopleFill className="enabled-icon-style" />))}
+                        {[...Array(5 - friendsPower)].map(() => (<BsPeopleFill className="disabled-icon-style" />))}
+                    </div>
+                </div>
+                <div className="grid grid-cols-2 mt-4" >
+                    <p>ガチ度</p>
+                    <div className="flex">
+                        {[...Array(gachiPower)].map(() => (<FaRunning className="enabled-icon-style" />))}
+                        {[...Array(5 - gachiPower)].map(() => (<FaRunning className="disabled-icon-style" />))}
+                    </div>
+                </div>
+                <div className="grid grid-cols-2 mt-4" >
+                    <p>カップル度</p>
+                    <div className="flex">
+                        {[...Array(lovePower)].map(() => (<BsSuitHeartFill className="enabled-icon-style" />))}
+                        {[...Array(5 - lovePower)].map(() => (<BsSuitHeartFill className="disabled-icon-style" />))}
+                    </div>
+                </div>
             </div>
             <div className="border-l">
                 <div className="grid grid-rows-4 h-full ml-12">
-                    {CircleInfo.map((item) => (
-                        <div className="border-b flex items-center" key={item.id}>
-                            <div className="flex items-center">{item.icon}<p className="ml-4">{item.name}</p>
+                        <div className="border-b flex items-center">
+                            <div className="flex items-center"><HiUserGroup className="text-2xl"/><p className="ml-4">人数</p>
                             </div>
-                            <p className="ml-auto">{item.value}</p>
+                            <p className="ml-auto">{member}<span>人</span></p>
                         </div>
-                    ))}
+                        <div className="border-b flex items-center">
+                            <div className="flex items-center"><MdPlace className="text-2xl"/><p className="ml-4">場所</p>
+                            </div>
+                            <p className="ml-auto">{place}</p>
+                        </div>
+                        <div className="border-b flex items-center">
+                            <div className="flex items-center"><FaYenSign className="text-2xl"/><p className="ml-4">年間費用</p>
+                            </div>
+                            <p className="ml-auto">{annualCost}<span>円</span></p>
+                        </div>
+                        <div className="border-b flex items-center">
+                            <div className="flex items-center"><MdToday className="text-2xl"/><p className="ml-4">活動日</p>
+                            </div>
+                            <p className="ml-auto">{activeDay}</p>
+                        </div>
                 </div>
             </div>
         </div>

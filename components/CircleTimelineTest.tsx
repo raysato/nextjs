@@ -2,8 +2,6 @@
 import { useState, useRef } from "react"
 import { AiOutlinePlus } from "react-icons/ai"
 
-export const timelineBar: string[] = ["4", "5", "6", "7" , "8", "9", "10", "11", "12", "1", "2", "3"]
-
 export default function CircleTimelineTest() {
 
     const [inputTimeline, setInputTimeline] = useState<string>('')
@@ -74,11 +72,9 @@ export default function CircleTimelineTest() {
 
     return (
       <div className="">
-            <div className="grid grid-cols-12 gap-0.5 text-white">
-                {timelineBar.map((value, index) =>(
-                     <div className={`bg-primary p-2 text-center ${index === 0 ? "rounded-tl-lg" : index === 11 ? "rounded-tr-lg" : ""}`} key={index}>{value}</div>
-                ))}
-            </div>
+
+        
+
             <div className="mt-4 grid grid-cols-12">
                 {addEvent.map(({value, start, end}, index) => (
                     <div className={`${start} ${end} row-start-${String(index + 1)}`} key={index}>

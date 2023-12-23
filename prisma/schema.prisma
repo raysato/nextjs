@@ -10,8 +10,123 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+model Account {
+  id            Int       @id @default(autoincrement())
+  name          String
+  email         String    @unique
+  password      String
+  expire_date   DateTime?
+  register_date DateTime  @default(now())
+  update_date   DateTime  @default(now()) @updatedAt
+  circle        Circle?
+
+  @@map("accounts")
+}
+
+model Circle {
+  id             Int            @id @default(autoincrement())
+  account_id     Int            @unique
+  name           String
+  line_url       String?
+  instagram_url  String?
+  twitter_url    String?
+  university     String?
+  drinking_power Int?
+  friends_power  Int?
+  gachi_power    Int?
+  love_power     Int?
+  member         Int?
+  place          String?
+  annual_cost    Int?
+  active_day     String?
+  main_content   String?
+  updatedAt      DateTime       @default(now()) @updatedAt
+  members        Member[]
+  achievement    Achievement[]
+  qa             Qa[]
+  main_image     MainImage[]
+  content_image  ContentImage[]
+  member_image   MemberImage[]
+  genre          Genre[]
+  tag            Tag[]
+  account        Account        @relation(fields: [account_id], references: [id])
+
+  @@map("circles")
+}
+
+model Member {
+  id           Int    @id @default(autoincrement())
+  circleId     Int
+  name         String
+  introduction String
+  circle       Circle @relation(fields: [circleId], references: [id])
+
+  @@map("members")
+}
+
+model Achievement {
+  id       Int    @id @default(autoincrement())
+  circleId Int
+  trophy   String
+  detail   String
+  circle   Circle @relation(fields: [circleId], references: [id])
+
+  @@map("achievement")
+}
+
+model Qa {
+  id       Int    @id @default(autoincrement())
+  circleId Int
+  question String
+  answer   String
+  circle   Circle @relation(fields: [circleId], references: [id])
+
+  @@map("qa")
+}
+
+model MainImage {
+  id       Int     @id @default(autoincrement())
+  circleId Int
+  filepath String?
+  circle   Circle  @relation(fields: [circleId], references: [id])
+
+  @@map("main_image")
+}
+
+model ContentImage {
+  id       Int     @id @default(autoincrement())
+  circleId Int
+  order    Int
+  filepath String?
+  circle   Circle  @relation(fields: [circleId], references: [id])
+
+  @@map("content_image")
+}
+
+model MemberImage {
+  id       Int     @id @default(autoincrement())
+  circleId Int
+  order    Int
+  filepath String?
+  circle   Circle  @relation(fields: [circleId], references: [id])
+
+  @@map("member_image")
+}
+
+model Genre {
+  id       Int    @id @default(autoincrement())
+  name     String
+  circleId Int
+  circle   Circle @relation(fields: [circleId], references: [id])
+
+  @@map("genre")
+}
+
+model Tag {
+  id       Int    @id @default(autoincrement())
+  name     String
+  circleId Int
+  circle   Circle @relation(fields: [circleId], references: [id])
+
+  @@map("tag")
 }

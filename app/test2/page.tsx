@@ -1,4 +1,3 @@
-import { get } from "http";
 import React, { useState, useEffect } from "react";
 import { prisma } from "../../lib/prismaClient";
 
@@ -21,7 +20,7 @@ async function getFilteredData() {
     return members;
 }
 
-export default async function Home() {
+export default async function test2() {
     //データの全件取得
     const users = prisma.account.findMany();
 
